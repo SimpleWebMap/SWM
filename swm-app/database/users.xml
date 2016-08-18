@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users>
+  <user id="0">
+    <email>rodrigofrcs@hotmail.com</email>
+    <pass>e10adc3949ba59abbe56e057f20f883e</pass>
+    <name>Francisco Rodrigo Cunha de Sousa</name>
+    <level>1</level>
+    <tel>123456789</tel>
+    <address>R. Loru</address>
+    <user_registered>2016-08-17 11:14:49</user_registered>
+  </user>
+  <user id="1">
+    <email>maria@hotmail.com</email>
+    <pass>123456</pass>
+    <name>Maria Pereira</name>
+    <tel>88992243601</tel>
+    <address/>
+  </user>
+  <user id="2">
+    <email>victoria@vic.comxxx</email>
+    <pass>vida</pass>
+    <name>Vitóriaxxx</name>
+    <tel>8899999999</tel>
+    <address/>
+    <user_updated>2016-08-17 11:15:24</user_updated>
+  </user>
+  <user id="3">
+    <name>Filipe</name>
+    <email>filipe@f.com</email>
+    <pass>000000</pass>
+  </user>
+  <user id="4">
+    <name>Kaio Prado</name>
+    <email>kaio@k.com</email>
+    <tel>889999999999</tel>
+    <address>R. Estilo</address>
+    <pass>d6857ef668b2040b91f6d80ad8204c96</pass>
+  </user>
+  <user id="5">
+    <name>Manoel</name>
+    <email>manoel@m.com</email>
+    <tel/>
+    <address/>
+    <pass>e10adc3949ba59abbe56e057f20f883e</pass>
+  </user>
+  <user id="6">
+    <name>Jonas</name>
+    <email>j@j.com</email>
+    <tel>888888</tel>
+    <address/>
+    <pass>37d4a6fadefe75f2ea9b3de82c393d2b</pass>
+  </user>
+  <user id="7">
+    <name>Maria fria</name>
+    <email>maf@ma.com</email>
+    <tel/>
+    <address/>
+    <pass>e10adc3949ba59abbe56e057f20f883e</pass>
+  </user>
+</users>

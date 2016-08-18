@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+  <setting id="0">
+    <title_site>Titulo</title_site>
+    <description_site>Descrição</description_site>
+    <method>0</method> 
+    <encryption_key>SimpleWebMapÉanimal</encryption_key>
+  </setting>
+</settings>

@@ -1,0 +1,75 @@
+/*
+cores
+background #252830
+color #E8E8E9
+search input background: #434857; border: none; font-size: 10pt; color: #C3C5CE !important; 
+
+menu li color AEB0B9
+menu li hover background 434857
+
+menu li active 
+
+*/
+
+body{background: #f1f1f1;}
+
+ 
+a.alert{color: #ff0000;}
+a{color: #51586A;}
+.callout{padding: 5px; font-size: .8rem;}
+.callout .close-button{margin-top: -5px; margin-right: -5px;}
+
+.text-center{text-align: center;}
+
+aside{background: ; padding-top: 50px;}
+section{padding-top: 50px; padding-bottom: 50px;}
+footer{}
+
+#dashboard-logo{padding-bottom: 30px;}
+#dashboard-logo a{color: #51586A}
+#dashboard-logo a:hover{color: #80838B}
+#dashboard-logo i{font-size: 60px;}
+#dashboard-logo span{font-size: 30px;}
+#dashboard-logo small{position: absolute; margin-top: 15px !important; margin-left: -30px;}
+
+#dashboard-search{vertical-align: middle; white-space: nowrap; position: relative;}
+#dashboard-search input#search{padding-left: 15px; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;}
+#dashboard-search .icon{ position: absolute; top: 50%; right: 20px; top: 8px; z-index: 1; color: #C3C5CE;}
+#dashboard-search input#search:hover, #dashboard-search input#search:focus, #dashboard-search input#search:active{ outline:none; background: #ffffff; color: #252830 !important; -webkit-transition: background .55s ease; -moz-transition: background .55s ease; -ms-transition: background .55s ease; -o-transition: background .55s ease;	transition: background .55s ease; }
+
+.menu li, .menu li.active{border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; margin: 2px auto;}
+.menu li:hover{background: #e9e9e9;}
+.menu li a{color: #30343F}
+.menu li.separator span{padding: 0 15px; color: #30343F; text-transform: uppercase; font-weight: bold;}
+.menu li.separator:hover{background: none;}
+.menu li.active{background: #1583CC;}
+.menu li.active a{color: #252830}
+
+section header{border-bottom: #434857 1px solid; padding-bottom: 10px; margin-bottom: 20px}
+section header .button{float: right;}
+section h2{font-size: 1.8rem;}
+
+footer p, footer p a{font-size: 0.9rem; color: #252830;}
+
+/*TABLE SORTABLE*/
+
+table thead th{padding:6px;text-align:center;}
+.tablesorter-header-inner:hover{cursor: pointer;}
+table tbody td{}/* background-color impar*/
+table tbody tr.odd td{} /* background-color par*/
+table tbody tr.hover td{background-color:#ddd;}
+table tbody tr.selected td{background-color:#ddd!important;}
+.pagedisplay{width:40px; text-align:center; border:none; background-color:#f2f2f2; font-weight:900;}
+
+#pager span{ font-weight:900; display:inline-block; margin:0 0 0 20px; color:#666; float:right;}
+#pager span:last-child{float: left;}
+#pager{margin-top: 10px;}
+#pager i{float: left; padding: 3px; margin: 1px; cursor: pointer;}
+#pager input{float: left; padding: 0px; height: 20px; margin: 0 1px; background: none;}
+#pager span{float: right;}
+#pager span.registers span{float: right;}
+#pager select{height: 20px; width: 40px; padding: 0px; margin: 0px; margin-right: -15px; float: right; border: none; background: none;}
+
+table.sortable th i{display: none; float: right;}
+table.sortable th.tablesorter-headerAsc div i.fa-sort-asc{display: inline;}
+table.sortable th.tablesorter-headerDesc div i.fa-sort-desc{display: inline;}
