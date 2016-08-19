@@ -18,6 +18,8 @@ a.alert{color: #ff0000;}
 a{color: #51586A;}
 .callout{padding: 5px; font-size: .8rem;}
 .callout .close-button{margin-top: -5px; margin-right: -5px;}
+.button-upload{width: 100%; text-align: center; padding-top: 2rem; padding-bottom: 2rem; color: #51586A; border: 3px dashed #51586A; background: none;}
+.button-upload:hover{background: #51586A;}
 
 .text-center{text-align: center;}
 

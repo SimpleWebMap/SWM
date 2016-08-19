@@ -52,7 +52,7 @@ class Pages extends CI_Controller {
             $data['title'] = $this->input->post('title', TRUE);
             $data['author'] = get_session('user_id');
             $content = str_replace('<', '&lt;', $this->input->post('content', TRUE));
-            $content = str_replace('>', '&gt;', $this->input->post('content', TRUE));
+            $content = str_replace('>', '&gt;', $content);
             $data['content'] = $content;
             $data['slug'] = url_title($this->input->post('title', TRUE), 'underscore', TRUE);
             $data['date'] = date('Y-m-d H:i:s');

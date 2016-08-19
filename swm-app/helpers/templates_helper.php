@@ -224,6 +224,12 @@ function init_htmleditor(){
     set_theme('footerinc', load_js(array('tinymce/tinymce.min')), FALSE);
 }
 
+function init_multiselect(){
+    $CI =& get_instance();
+    set_theme('headerinc', load_css(array('multi-select')), FALSE);
+    set_theme('footerinc', load_js(array('jquery.multi-select', 'jquery.quicksearch')), FALSE);
+}
+
 
 function main_menu(){
 	return 
