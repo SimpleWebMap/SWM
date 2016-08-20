@@ -51,8 +51,7 @@ class Pages extends CI_Controller {
             $id = $this->uri->segment(3);
             $data['title'] = $this->input->post('title', TRUE);
             $data['author'] = get_session('user_id');
-            $content = str_replace('<', '&lt;', $this->input->post('content', TRUE));
-            $content = str_replace('>', '&gt;', $content);
+            $content = html_entity_decode($this->input->post('content', TRUE));
             $data['content'] = $content;
             $data['slug'] = url_title($this->input->post('title', TRUE), 'underscore', TRUE);
             $data['date'] = date('Y-m-d H:i:s');
@@ -91,10 +90,9 @@ class Pages extends CI_Controller {
         $this->form_validation->set_message('min_length', 'O campo %s curto demais');
         $this->form_validation->set_rules('title', strtoupper('Título'), 'trim|required|min_length[5]');
         if ($this->form_validation->run()==TRUE):
-        	$data['title'] = $this->input->post('title', TRUE);
+        	$data['title'] = html_entity_decode($this->input->post('title', TRUE));
             $data['author'] = get_session('user_id');
-            $content = str_replace('<', '&lt;', $this->input->post('content', TRUE));
-            $content = str_replace('>', '&gt;', $content);
+            $content = html_entity_decode($this->input->post('content', TRUE));
             $data['content'] = $content;
             $data['slug'] = url_title($this->input->post('title', TRUE), 'underscore', TRUE);
             $data['date'] = date('Y-m-d H:i:s');

@@ -23,9 +23,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 class Easyxml {
 	
-	private $xml	= null;
-	private $path	= null;
-	
 	/**
 	 * Constructor
 	 * 
@@ -99,13 +96,6 @@ class Easyxml {
 
 		return $count;
 	}
-
-
-
-
-
-
-
 
 
 	public function get_by_child( $path, $child1, $child2, $child3, $value ){
@@ -271,7 +261,6 @@ class Easyxml {
 
 		return max($arr);
 	}
-	
 	
 	
 	/**

@@ -12,17 +12,17 @@ class Settings_model extends CI_Model {
     }
 
     public function get_settings(){
-        $params = array('path' => 'swm-app/database/settings.xml');
-        $this->load->library('easyxml', $params);
-        $result = $this->easyxml->attribute_value_exists('settings', 'setting', 'id', '0');
+        $path = 'swm-app/database/settings.xml';
+        $this->load->library('easyxml');
+        $result = $this->easyxml->attribute_value_exists($path, 'settings', 'setting', 'id', '0');
         if(count(obj_to_array($result))):
             return obj_to_array($result)[0];
         endif;;
     }
 
     public function update_setting($data){
-        $params = array('path' => 'swm-app/database/settings.xml');
-        $this->load->library('easyxml', $params);
-        return $this->easyxml->update($data, 'settings', 'setting', 'id', '0');
+        $path = 'swm-app/database/settings.xml';
+        $this->load->library('easyxml');
+        return $this->easyxml->update($path, $data, 'settings', 'setting', 'id', '0');
     }
 }

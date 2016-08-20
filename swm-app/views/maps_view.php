@@ -10,9 +10,8 @@ switch ($screen):
                 </header>
                 <article class="row">
                     <?php
-                    $id_map = '0';
-                    //$map = $this->maps->get_map_by_id($id_map);
-                    print_r($map);
+                    $id_map = ($this->uri->segment(3) != NULL) ? $this->uri->segment(3) : '0';
+                    $map = $this->maps->get_map_by_id($id_map);
                     echo form_open_multipart(current_url(), 'id="pages-edit-form" class="medium-12 large-8 columns"');
                         errors_validating();
                         get_msg('msg');

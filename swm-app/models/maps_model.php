@@ -12,19 +12,18 @@ class Maps_model extends CI_Model {
     }
 
     public function get_map_by_id($id){
-        $params = array('path' => 'swm-app/database/maps.xml');
-        $this->load->library('easyxml', $params);
-        $result = $this->easyxml->attribute_value_exists('maps', 'map', 'id', '0');
-        print_r($result);
+        $path = 'swm-app/database/maps.xml';
+        $this->load->library('easyxml');
+        $result = $this->easyxml->attribute_value_exists($path, 'maps', 'map', 'id', '0');
         if(count(obj_to_array($result))):
             return obj_to_array($result)[0];
         endif;;
     }
 
-    public function update_user_by_id($data, $id){
-        $params = array('path' => 'swm-app/database/users.xml');
-        $this->load->library('easyxml', $params);
-        return $this->easyxml->update($data, 'users', 'user', 'id', $id);
+    public function update_map_by_id($data, $id){
+        $path = 'swm-app/database/maps.xml';
+        $this->load->library('easyxml');
+        return $this->easyxml->update($path, $data, 'maps', 'map', 'id', $id);
     }
 
 }

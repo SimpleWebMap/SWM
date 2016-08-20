@@ -83,8 +83,7 @@ switch ($screen):
                         echo form_label('Nome');
                         $page = $this->pages->get_page_by_id($id_page);
                         echo form_input(array('name'=>'title', 'placeholder'=>'Título da página'), set_value('title', $page['title']), 'autofocus');
-                        $content = str_replace('&lt;', '<', $page['content']);
-                        $content = str_replace('&gt;', '>', $content);
+                        $content = htmlentities($page['content']);
                         echo '<textarea name="content" placeholder="Conteúdo" rows="15" class="editor">'.$content.'</textarea>';
                         echo form_submit(array('name'=>'save', 'class'=>'button radius small'), 'Salvar');
                     echo form_close();
@@ -108,8 +107,7 @@ switch ($screen):
                         errors_validating();
                         get_msg('msg');
                         echo form_input(array('name'=>'title', 'placeholder'=>'Título da página'), set_value('title'), 'autofocus');
-                        $content = str_replace('&lt;', '<', set_value('content'));
-                        $content = str_replace('&gt;', '>', $content);
+                        $content = htmlentities(set_value('content'));
                         echo '<textarea name="content" placeholder="Conteúdo" rows="15" class="editor">'.$content.'</textarea>';
                         echo form_submit(array('name'=>'save', 'class'=>'button radius small'), 'Publicar');
                     echo form_close();
