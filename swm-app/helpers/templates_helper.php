@@ -37,15 +37,37 @@ function initialize_dashboard(){
     set_theme('theme', 'default');
     set_theme('title_default', 'Título do meu site');
     set_theme('footer', '');
-    set_theme('template', 'template_view');
+    set_theme('template', 'template_dashboard_view');
     set_theme('menu', main_menu());
     //loading css in header
     set_theme('headerinc', load_css(array('foundation.min', 'style', 'font-awesome.min', 'table-sorter')), FALSE);
     //loading js in footer
     
-    set_theme('footerinc', load_js(array('vendor/jquery', 'vendor/what-input', 'vendor/foundation.min', 'jquery.tablesorter.min', 'jquery.tablesorter.pager', 'app')), FALSE);
+    set_theme('footerinc', load_js(array('vendor/jquery', 'vendor/what-input', 'vendor/foundation.min', 'jquery.tablesorter.min', 'jquery.tablesorter.pager', 'scripts')), FALSE);
     //startup package
 }
+
+
+
+function initialize_map(){
+    $CI =& get_instance();
+    //loads librarys, helpers and models recurrently used in the system
+    $CI->load->library(array('parser', 'system', 'session', 'form_validation'));
+    $CI->load->helper(array('form', 'url', 'array', 'text'));
+    //property standards as the title of the panel and roapé (are automatically entered in the system settings)
+    set_theme('theme', 'default');
+    set_theme('footer', '');
+    set_theme('template', 'template_map_view');
+    set_theme('menu', main_menu());
+    //loading css in header
+    set_theme('headerinc', load_css(array('foundation.min', 'app', 'font-awesome.min', 'table-sorter')), FALSE);
+    //loading js in footer
+    
+    set_theme('footerinc', load_js(array('vendor/jquery', 'vendor/what-input', 'vendor/foundation.min', 'ol', 'app')), FALSE);
+    //startup package
+}
+
+
 
 // ------------------------------------------------------------------------
 

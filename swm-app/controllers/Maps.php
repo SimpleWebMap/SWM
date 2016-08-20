@@ -18,7 +18,9 @@ class Maps extends CI_Controller {
 
 	public function index()
 	{
+		
 		print_r($this->input->post('multiselect'));
+		$this->load->model('maps_model', 'maps');
 		init_htmleditor();
 		init_multiselect();
 		set_theme('the_title', 'Mapas');

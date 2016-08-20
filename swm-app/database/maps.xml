@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<maps>
+  <map id="0">
+    <title>Título do primeiro mapa</title>
+    <banner>banner_mapa1.png</banner>
+    <layout>sidebar_right</layout>
+    <style>light</style>
+    <base_map>osm</base_map>
+    <pages>10,5,4,2,1</pages>
+    <layers>10,5,4,2,1</layers>
+    <buttons_zoom>true</buttons_zoom>
+    <slider_zoom>true</slider_zoom>
+    <button_extend>true</button_extend>
+    <button_geolocation>true</button_geolocation>
+    <button_north>true</button_north>
+    <button_info>true</button_info>
+    <button_fullscreen>true</button_fullscreen>
+    <bar_scale>true</bar_scale>
+    <north>true</north>
+    <buttons_navigation>true</buttons_navigation>
+    <overview>true</overview>
+    <bar_status>true</bar_status>
+    <the_title>true</the_title>
+    <the_banner>true</the_banner>
+    <the_footer>true</the_footer>
+    <the_siderbar>true</the_siderbar>
+    <the_statusbar>true</the_statusbar>
+    <the_menu>true</the_menu>
+    <the_basemap>true</the_basemap>
+    <the_search>true</the_search>
+    <the_pages>true</the_pages>
+    <the_legend>true</the_legend>
+    <the_layers>true</the_layers>
+    <the_info>true</the_info>
+    <the_filters>true</the_filters>
+    <content>&lt;p&gt;&lt;p&gt;&lt;p&gt;123456789&lt;/p&gt;&lt;/p&gt;&lt;/p&gt;</content>
+  </map>
+</maps>

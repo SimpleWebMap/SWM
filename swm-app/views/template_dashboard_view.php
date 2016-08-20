@@ -5,12 +5,9 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title><?php echo (isset($the_title)) ? '{the_title} | {title_default}' : '{title_default}'; ?></title>
-        <script src="http://openlayers.org/en/v3.16.0/build/ol.js"></script>
         {headerinc}
     </head>
     <body>
-
-
         <div id="main" class="row">
             <aside class="small-hide medium-4 large-3 columns">
                 <div id="dashboard-logo">
@@ -22,8 +19,6 @@
                     <span class="icon"><i class="fa fa-search"></i></span>
                     <input type="search" id="search" placeholder="Search..." />
                 </form>
-
-
 
                 <ul class="menu vertical">
                     {menu}
