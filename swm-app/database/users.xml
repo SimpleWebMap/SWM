@@ -8,6 +8,7 @@
     <tel>123456789</tel>
     <address>R. Loru</address>
     <user_registered>2016-08-17 11:14:49</user_registered>
+    <user_updated>2016-08-20 03:40:32</user_updated>
   </user>
   <user id="1">
     <email>maria@hotmail.com</email>
@@ -15,14 +16,15 @@
     <name>Maria Pereira</name>
     <tel>88992243601</tel>
     <address/>
+    <user_updated>2016-08-20 03:34:48</user_updated>
   </user>
   <user id="2">
-    <email>victoria@vic.comxxx</email>
+    <email>victoria@vic.com2</email>
     <pass>vida</pass>
-    <name>Vitóriaxxx</name>
+    <name>Vitória</name>
     <tel>8899999999</tel>
     <address/>
-    <user_updated>2016-08-17 11:15:24</user_updated>
+    <user_updated>2016-08-20 03:35:06</user_updated>
   </user>
   <user id="3">
     <name>Filipe</name>
@@ -56,5 +58,21 @@
     <tel/>
     <address/>
     <pass>e10adc3949ba59abbe56e057f20f883e</pass>
+  </user>
+  <user id="8">
+    <name>Kauan</name>
+    <email>kaio@k.com</email>
+    <tel/>
+    <address/>
+    <pass>2bb9582613ea3398d01516ee32c3fb87</pass>
+    <user_registered>2016-08-20 03:16:18</user_registered>
+  </user>
+  <user id="9">
+    <name>Diva Lara</name>
+    <email>diva@lara.com</email>
+    <tel>88  888 888 88</tel>
+    <address>sssssssssssssssssssssssssssss  sssssss</address>
+    <pass>e10adc3949ba59abbe56e057f20f883e</pass>
+    <user_registered>2016-08-20 03:17:04</user_registered>
   </user>
 </users>

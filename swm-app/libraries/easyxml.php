@@ -34,8 +34,8 @@ class Easyxml {
 	 * @access	public
 	 * @param	mixed $params  path = '/database/db_test.xml'
 	 */
-	function __construct( $params ) {
-		if ( file_exists ( $params ['path'] )):
+	function __construct() {
+/*		if ( file_exists ( $params ['path'] )):
 			if( extension_loaded('simplexml') ):
 				if( is_writable($params ['path']) ):
 					$this->path = $params ['path'];
@@ -53,6 +53,30 @@ class Easyxml {
 			show_error('Some featutres of EasyXML wont work, because the XML file does\'t exist! 
 						Check the path you informed: ' . $params ['path'] );
 		endif;
+*/
+	}
+
+
+	public function xml($path){
+		$xml = FALSE;
+		if ( file_exists ( $path )):
+			if( extension_loaded('simplexml') ):
+				if( is_writable($path) ):
+					if( ! $xml = simplexml_load_file( $path ) ):
+						show_error('Error reading '.basename( $path ).' file.');
+					endif;
+				else:
+					show_error('The file '.basename( $path ).' is not writable! Check the permissions.');	
+				endif;
+			else:
+				show_error('SimpleXML is not loaded! Check the loaded modules you have: <pre>' . 
+							var_export( get_loaded_extensions(), true ) . '</pre>' );
+			endif;
+		else:
+			show_error('Some featutres of EasyXML wont work, because the XML file does\'t exist! 
+						Check the path you informed: ' . $path );
+		endif;
+		return $xml;
 	}
 	
 	
@@ -66,10 +90,10 @@ class Easyxml {
 	 * 
 	 * @example $this->easyxml->get_num_elements();
 	 */
-	public function get_num_elements() {
+	public function get_num_elements($path) {
 		$count = 0;
 
-		foreach ( $this->xml as $node ):
+		foreach ( $this->xml($path) as $node ):
 			$count ++;
 		endforeach;
 
@@ -84,10 +108,10 @@ class Easyxml {
 
 
 
-	public function get_by_child($child1, $child2, $child3, $value){
+	public function get_by_child( $path, $child1, $child2, $child3, $value ){
 		$result = FALSE;
 		$nodename = '/'.$child1.'/'.$child2;
-		$res = $this->xml->xpath($nodename);
+		$res = $this->xml($path)->xpath($nodename);
 
 		foreach ($res as $key => $obj):
 			foreach ($obj as $k => $v):
@@ -119,9 +143,9 @@ class Easyxml {
 	 * 
 	 * @example $this->easyxml->child_exists('/user/user/name');
 	 */
-	public function child_exists( $child1, $child2 ) {
+	public function child_exists( $path, $child1, $child2 ) {
 		$nodename = '/'.$child1.'/'.$child2;
-		$result = $this->xml->xpath($nodename);
+		$result = $this->xml($path)->xpath($nodename);
 
 		return count( $result ) ? $result : false; 
 	}
@@ -143,10 +167,10 @@ class Easyxml {
 	 * 
 	 * @example $this->easyxml->attribute_value_exists('users', 'user','id','25');
 	 */
-	public function attribute_value_exists( $child1, $child2, $attribute, $atribvalue ) {
+	public function attribute_value_exists( $path, $child1, $child2, $attribute, $atribvalue ) {
 		$nodename = '/'.$child1.'/'.$child2;
 		$xpath_val	= "//".$nodename."[@".$attribute."='".$atribvalue."']";
-		$res		= $this->xml->xpath( $xpath_val );
+		$res		= $this->xml($path)->xpath( $xpath_val );
 		
 		return count( $res ) ? $res : false;
 	}
@@ -168,11 +192,18 @@ class Easyxml {
 	 * 
 	 * @example $this->easyxml->removeNodeByAttrib('users/user','id','1');
 	 */
-	public function removeNodeByAttrib( $child1, $child2, $attribute, $value ) { 
+	public function removeNodeByAttrib( $path, $child1, $child2, $attribute, $value ) {
+		$xml = $this->xml($path);
+
 		$nodename = '/'.$child1.'/'.$child2;
-		if( $this->attribute_value_exists($child1, $child2, $attribute, $value) ):
+		$xpath_val	= "//".$nodename."[@".$attribute."='".$value."']";
+		$res		= $xml->xpath( $xpath_val );
+
+		print_r($res);
+
+		if( count( $res ) ):
 			$xpath_val	= "//".$nodename."[@".$attribute."='".$value."']";
-			$res		= $this->xml->xpath($xpath_val);
+			$res		= $xml->xpath($xpath_val);
 			
 			foreach( $res as $key => $node ):
 				foreach( $node->attributes() as $attrib => $val ):
@@ -182,7 +213,7 @@ class Easyxml {
 				endforeach;
 			endforeach;
 			$oNode->parentNode->removeChild( $oNode );
-			$this->xml->saveXMLIndented( $this->xml, $this->path );
+			$this->saveXMLIndented( $xml, $path );
 			return TRUE;
 		else:
 			return FALSE;
@@ -225,10 +256,10 @@ class Easyxml {
 	 * 
 	 * @example $this->get_max_attribute('usersr', 'user','id');
 	 */
-	private function get_max_attribute( $child1, $child2, $attribute) {
+	private function get_max_attribute( $path, $child1, $child2, $attribute) {
 		$nodename = '/'.$child1.'/'.$child2;
 		$xpath_val	= "//".$nodename."[@".$attribute."]";
-		$res		= $this->xml->xpath( $xpath_val );
+		$res		= $this->xml($path)->xpath( $xpath_val );
 		
 		foreach( $res as $key => $node ):
 			foreach( $node->attributes() as $attrib => $val ):
@@ -246,28 +277,29 @@ class Easyxml {
 	/**
 	 * Insert 
 	 * 
-	 * Inserts a new book node in xml file.
+	 * Inserts a new item node in xml file.
 	 * 
-	 * @param	array $data Book information.
+	 * @param	array $data item information.
 	 * @param  string $child1	Name of the child node.
 	 * @param  string $child2	Name of the subchild node.
-	 * @return	int 		The Id of inserted book.
+	 * @return	int 		The Id of inserted item.
 	 * 
-	 * @example $this->easyxml->insert_book($arrayChildNodes);
+	 * @example $this->easyxml->insert_item($arrayChildNodes);
 	 */
-	public function insert( $data, $child1, $child2 ) {
+	public function insert( $path, $data, $child1, $child2 ) {
 		$nodename = '/'.$child1.'/'.$child2;
-		$book		= $this->xml->addChild($child2);
-		$last_id	= $this->get_max_attribute($child1, $child2,'id') + 1;
+		$xml        = $this->xml($path);
+		$item		= $xml->addChild($child2);
+		$last_id	= $this->get_max_attribute($path, $child1, $child2,'id') + 1;
 		$last_id	= $last_id;
 		
-		$book->addAttribute('id', $last_id);
+		$item->addAttribute('id', $last_id);
 		
 		foreach($data as $key => $value):
-			$book->addChild($key,$value);
+			$item->addChild($key,$value);
 		endforeach;
 		
-		$this->xml->saveXMLIndented( $this->xml, $this->path );
+		$this->saveXMLIndented( $xml, $path );
 				
 		return $last_id; #returning last id
 	}
@@ -275,28 +307,30 @@ class Easyxml {
 	
 	
 	/**
-	 * Update Book
+	 * Update item
 	 * 
-	 * Update a book node.
+	 * Update a item node.
 	 * 
-	 * @param	array 	$data	Book information, including its Id.
+	 * @param	array 	$data	item information, including its Id.
 	 * @param  string $child1	Name of the child node.
 	 * @param  string $child2	Name of the subchild node.
 	 * @param string $attribute	Name of the value.
 	 * @param string $value		Value of the attribute.
 	 * @return	boolean 		TRUE: Success. FALSE: Error.
 	 * 
-	 * @example $this->easyxml->update_book($arrayChildNodes);
+	 * @example $this->easyxml->update_item($arrayChildNodes);
 	 */
-	public function update( $data, $child1, $child2, $attribute, $value ) {
-		$res = $this->attribute_value_exists($child1, $child2, $attribute, $value );
-		
+	public function update( $path, $data, $child1, $child2, $attribute, $value ) {
+		$xml = $this->xml($path);
+		$nodename = '/'.$child1.'/'.$child2;
+		$xpath_val	= "//".$nodename."[@".$attribute."='".$value."']";
+		$res		= $xml->xpath( $xpath_val );
 		if( $res ):
 			foreach ($data as $key => $value):
 				eval('$res[0]->'.$key.'			= "'.$value.'";');
 			endforeach;
 			
-			$this->xml->saveXMLIndented( $this->xml,$this->path );
+			$this->saveXMLIndented( $xml,$path );
 			
 			return TRUE;
 		else:
@@ -324,18 +358,6 @@ class Easyxml {
 		endif;
 	}	
 
-} // end_class
-
-
-
-/**
- * SimpleXMLExtended
- * 
- * Adding extra spice in PHP SimpleXML.
- * 
- * @author Carlos
- */
-class SimpleXMLExtended extends SimpleXMLElement {
 	/**
 	 * Add CData
 	 * 
@@ -376,7 +398,6 @@ class SimpleXMLExtended extends SimpleXMLElement {
 			file_put_contents( $path, $doc->saveXML());
 		endif;
 	}
-} //end_class
 
+} // end_class
 
-#EOF

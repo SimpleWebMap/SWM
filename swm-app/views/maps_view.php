@@ -11,7 +11,7 @@ switch ($screen):
                 <article class="row">
                     <?php
                     $id_map = '0';
-                    $map = $this->maps->get_map_by_id($id_map);
+                    //$map = $this->maps->get_map_by_id($id_map);
                     print_r($map);
                     echo form_open_multipart(current_url(), 'id="pages-edit-form" class="medium-12 large-8 columns"');
                         errors_validating();

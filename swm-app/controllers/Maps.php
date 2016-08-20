@@ -18,15 +18,24 @@ class Maps extends CI_Controller {
 
 	public function index()
 	{
-		
+		$params = 'swm-app/database/maps.xml';
+        $this->load->library('easyxml');
+        $resultado = $this->easyxml->get_num_elements($params);
+        $resultado = $this->easyxml->get_by_child($params, 'maps', 'map', 'teste', 'casa');
+        $resultado = $this->easyxml->child_exists($params, 'maps', 'map');
+        $resultado = $this->easyxml->attribute_value_exists($params, 'maps', 'map', 'id', '0');
+        //$result = $this->easyxml->attribute_value_exists('maps', 'map', 'id', '0');
+
+        print_r($resultado);
+
 		print_r($this->input->post('multiselect'));
 		$this->load->model('maps_model', 'maps');
 		init_htmleditor();
 		init_multiselect();
 		set_theme('the_title', 'Mapas');
-		if(get_setting('method') == '0'):
+		/*if(get_setting('method') == '0'):
 			set_theme('content', load_module('maps_view', 'map_unique'));
-		endif;
+		endif;*/
 		load_template();
 	}
 }
