@@ -39,7 +39,7 @@ class Pages extends CI_Controller {
      */
 	public function edit(){
 		if ($this->uri->segment(3) == NULL):
-			redirect('users');
+			redirect('pages');
 		endif;
         $this->load->model('users_model', 'users');
         $this->load->model('pages_model', 'pages');

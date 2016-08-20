@@ -2,39 +2,37 @@
 <maps>
   <map id="0">
     <title>Título da página2</title>
-    <banner>banner_mapa1.png</banner>
+    <base_map>osm</base_map>
+    <content/>
+    <banner/>
     <layout>sidebar_left</layout>
     <style>dark_blue</style>
-    <base_map>osm</base_map>
-    <pages>10,5,4,2,1</pages>
+    <pages/>
     <layers/>
-    <buttons_zoom>accept</buttons_zoom>
-    <slider_zoom>accept</slider_zoom>
-    <button_extend>accept</button_extend>
-    <button_geolocation>accept</button_geolocation>
-    <button_north>accept</button_north>
-    <button_info>accept</button_info>
-    <button_fullscreen>accept</button_fullscreen>
-    <bar_scale>accept</bar_scale>
-    <north>accept</north>
-    <buttons_navigation>accept</buttons_navigation>
-    <overview>accept</overview>
-    <bar_status>accept</bar_status>
-    <the_title>accept</the_title>
-    <the_banner>accept</the_banner>
-    <the_footer>accept</the_footer>
-    <the_siderbar>accept</the_siderbar>
-    <the_statusbar>accept</the_statusbar>
-    <the_menu>accept</the_menu>
-    <the_basemap>accept</the_basemap>
-    <the_search>accept</the_search>
-    <the_pages>accept</the_pages>
-    <the_legend>accept</the_legend>
-    <the_layers>accept</the_layers>
-    <the_info>accept</the_info>
-    <the_filters>accept</the_filters>
-    <content/>
-    <teste>casa</teste>
-    <newsletter>accept</newsletter>
+    <btn_buttons_zoom>0</btn_buttons_zoom>
+    <btn_slider_zoom>0</btn_slider_zoom>
+    <btn_button_extend>0</btn_button_extend>
+    <btn_button_geolocation>0</btn_button_geolocation>
+    <btn_button_north>0</btn_button_north>
+    <btn_button_info>0</btn_button_info>
+    <btn_button_fullscreen>0</btn_button_fullscreen>
+    <elm_bar_scale>0</elm_bar_scale>
+    <elm_north>0</elm_north>
+    <elm_buttons_navigation>0</elm_buttons_navigation>
+    <elm_overview>0</elm_overview>
+    <elm_bar_status>0</elm_bar_status>
+    <eli_title>0</eli_title>
+    <eli_banner>0</eli_banner>
+    <eli_footer>0</eli_footer>
+    <eli_siderbar>0</eli_siderbar>
+    <eli_statusbar>0</eli_statusbar>
+    <eli_menu>0</eli_menu>
+    <eln_basemap>0</eln_basemap>
+    <eln_search>0</eln_search>
+    <eln_pages>0</eln_pages>
+    <els_legend>1</els_legend>
+    <els_layers>1</els_layers>
+    <els_info>0</els_info>
+    <els_filters>1</els_filters>
   </map>
 </maps>

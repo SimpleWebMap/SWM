@@ -50,8 +50,8 @@ $(function(){
       //multiselect
       $('.multiselect').multiSelect({
         keepOrder: true,
-        selectableHeader: "<input type='text' class='search-input' autocomplete='off' placeholder='Pesquisar camadas...'>",
-        selectionHeader: "<input type='text' class='search-input' autocomplete='off' placeholder='Pesquisar camadas selecionadas...'>",
+        selectableHeader: "<input type='text' class='search-input' autocomplete='off' placeholder='Pesquisar itens...'>",
+        selectionHeader: "<input type='text' class='search-input' autocomplete='off' placeholder='Pesquisar itens selecionados...'>",
         afterInit: function(ms){
           var that = this,
               $selectableSearch = that.$selectableUl.prev(),
